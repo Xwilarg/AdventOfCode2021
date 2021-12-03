@@ -39,7 +39,7 @@ function Part2 {
         $CO2.Add($_)
     }
 
-    ($Length - 1)..0 | ForEach-Object {
+    0..($Length - 1) | ForEach-Object {
         $i = $_
         $Zero = 0
         $One = 0
@@ -59,8 +59,9 @@ function Part2 {
     }
     $Bit = 1
     $Value = 0
-    $Oxygen[0].ToCharArray() | ForEach-Object {
-        $Value += $Bit * ($_ - '0')
+    $Nb = $Oxygen[0].ToCharArray()
+    ($Nb.Length - 1)..0 | ForEach-Object {
+        $Value += ($Bit * ($Nb[$_] - 48))
         $Bit += $Bit
     }
     echo $Value
