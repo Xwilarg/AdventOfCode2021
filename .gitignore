@@ -1,9 +1,10 @@
 *.exe
+*.pdb
 
 # Input file
 input.txt
 
-# C#
+# .NET
 .vs
 bin/
 obj/
