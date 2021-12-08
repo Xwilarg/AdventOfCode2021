@@ -10,3 +10,4 @@ Advent Of Code 2021
  - Day 5: [Javascript (Node)](Day5)
  - Day 6: [Lua](Day6)
  - Day 7: [F#](Day7)
+ - Day 8: [Rust](Day8)

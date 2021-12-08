@@ -37,8 +37,21 @@ fn part2() {
         let three = sort(u_three.chars().collect::<Vec<char>>());
         let two = sort(test_values.clone().filter(|&x| x.len() == 5 && x != u_three && x.contains(top_left)).nth(0).unwrap().chars().collect::<Vec<char>>());
         let five = sort(test_values.clone().filter(|&x| x.len() == 5 && x != u_three && !x.contains(top_left)).nth(0).unwrap().chars().collect::<Vec<char>>());
-        let u_nine = test_values.clone().filter(|&x| x.len() == 6 && x != u_six && sort(x.chars().collect::<Vec<char>>()).contains(&five)).nth(0).unwrap();
-        let nine = sort(u_nine.chars().collect::<Vec<char>>());
+        let mut nine = "".to_string();
+        for rv in test_values.clone() {
+            if rv == u_six || rv.len() != 6 {
+                continue;
+            }
+            let mut ok = 0;
+            for letter in rv.chars() {
+                if five.contains(letter) {
+                    ok += 1;
+                }
+            }
+            if ok == 5 {
+                nine = sort(rv.chars().collect::<Vec<char>>());
+            }
+        }
 
         let mut value = 0;
         let mut i = 1;
