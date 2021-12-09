@@ -4,6 +4,7 @@ import(
     "bufio"
 	"os"
 	"fmt"
+	"sort"
 )
 
 func loadData() [][]int {
@@ -74,14 +75,23 @@ func fillZone(x, y int, data [][]int) ([][]int, int) {
 func part2() {
 	data := loadData()
 	size := 0
+	biggests := []int{}
 	for y := 0; y < len(data); y++ {
 		for x := 0; x < len(data[y]); x++ {
 			if data[y][x] != 9 {
 				data, size = fillZone(x, y, data)
-				fmt.Println(size)
+				if len(biggests) < 3 {
+					biggests = append(biggests, size)
+				} else {
+					sort.Ints(biggests)
+					if size > biggests[0] {
+						biggests[0] = size
+					}
+				}
 			}
 		}
 	}
+	fmt.Println(biggests[0] * biggests[1] * biggests[2])
 }
 
 func main() {
