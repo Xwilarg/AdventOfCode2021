@@ -12,3 +12,4 @@ Advent Of Code 2021
  - Day 7: [F#](Day7)
  - Day 8: [Rust](Day8)
  - Day 9: [Go](Day9)
+ - Day 10: [D](Day10)
